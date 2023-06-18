@@ -1,13 +1,3 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
-FROM adoptopenjdk/openjdk11:alpine-jre
-
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
-
-WORKDIR /opt/app
-
-COPY ${artifact} app.jar
-
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM tomcat:8.0.20-jre8
+# Dummy text to test 
+COPY target/java-web-app*.war /usr/local/tomcat/webapps/java-web-app.war
